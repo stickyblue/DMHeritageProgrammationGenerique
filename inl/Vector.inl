@@ -38,13 +38,16 @@ inline T& Vector<T>::pop()
     {
         throw std::out_of_range("Vector vide");
     }
+    s--;
     return storage[s-1];
+
+
 }
 
 template<class T>
 inline bool Vector<T>::push(const T& t)
 {
-        if (s == 0 && capacity == 1)
+    if (s == 0 && capacity == 1)
     {
         storage[0] = t;
         s++;
@@ -75,7 +78,7 @@ inline void Vector<T>::print() const
 template<class T>
 inline T& Vector<T>::get_i(const int index) const
 {
-    if (index < 0 || index >= s) //s inclu dans capacity
+    if (index < 0 || index >= s)
     {
         throw std::out_of_range("Index hors limites");
     }

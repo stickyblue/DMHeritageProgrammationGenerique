@@ -51,6 +51,16 @@ int main()
     Vector<string> vs2 = vs;
     cout << "Contenu du Vector copié: ";
     vs2.print();
+    vs.push("C++");
+    cout << "Après ajout de 'C++' au Vector initial, on print le Vector copié: ";
+    vs2.print();
+    cout << "Le Vector copié ne doit pas contenir 'C++'." << endl;
+    cout << "Contenu du Vector initial modifié: ";
+    vs.print();
+    cout << "Le Vector initial doit contenir 'C++'." << endl;
+
+    cout << "taille du Vector initial: " << vs.size() << endl;
+    cout << "La taille doit être 4." << endl;
 
     cout << "Fin des tests." << endl;
 

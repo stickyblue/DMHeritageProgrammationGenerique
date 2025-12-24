@@ -1,4 +1,4 @@
-# PArtie 1
+# Partie 1
 ## Q0
 
 Le mot clé const est l'abréviation de constant. Comme son nom le suggère, il permet de dire au code que ces valeurs ne peuvent être changées. Cela est utile pour prévenir d'une mauvaise manipulation qui changerait la valeur de ces paramètres ou l'output d'une méthode par exemple.
@@ -38,3 +38,6 @@ La problème d'utiliser des unique pointers est que ceux-ci garantissent un acc�
 Une contraite est que les types d'éléments utilisés doivent avoir une relation de priorité, les strings par exemple ne peuvent pas être évalués directement (Bien sûr, on peu les traduire en entier et comparer leur équivalents en entier, on pourrait comparer la longueur des strings également, on pourrait les hacher, ne récupérer que les chiffres du hash et les additionner, ect.) Il faut donc réussir à définir une relation de comparaison (de priorité) pour les types n'en ayant pas de défini par défaut.
 
 
+## Q13
+
+L'utilisation d'un vector permet une allocation dynamique de la mémoire (car la taille du vector est modifiée automatiquement au besoin). Cela peret également de gérer les copies, car l'implémentation de la copie a été implémentée dans la classe Vector. Un unique pointer réimplémenterai les problèmes énonés en question 11.
