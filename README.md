@@ -1,6 +1,6 @@
 # DM: Héritage, Programmation Générique
 
-Ce repository correspond au rendu du DM d'architecture et structure de données
+Ce repository correspond au rendu du DM d'architecture et structure de données. Le sujet ne possède pas de question 17 au jour de cette rédaction (24/12/25).
 
 ## Compilation
 
