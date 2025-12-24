@@ -11,7 +11,7 @@ class Vector
         virtual ~Vector() = default;
         void adjust();
         T& get_i(const int index) const;
-        T& pop();
+        T pop();
         bool push(const T& t);
         bool isEmpty() const;
         int size() const;

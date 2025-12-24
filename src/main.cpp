@@ -1,4 +1,5 @@
 #include "../head/Vector.h"
+#include "../head/PriorityQueue.h"
 #include <iostream>
 
 using namespace std;
@@ -76,7 +77,35 @@ int main()
         cout << "Exception attrapée pour get_i(10): " << e.what() << endl;
     }
 
-    cout << "Fin des tests." << endl;
+    cout << "Fin des tests de Vector." << endl;
+
+    cout << "Test de l'implémentation de PriorityQueue" << endl;
+    PriorityQueue<int> pq;
+    for (int i = 0; i < 10; i++)
+    {
+        pq.push(i);
+        cout << "Après push(" << i << "): ";
+        pq.print();
+    }
+    cout << "Pas d'erreur lors des push, donc la PriorityQueue fonctionne (et les push aussi pour le coup)." << endl;
+
+    cout << "Test de la méthode pop(): " << pq.pop() << endl;
+    cout << "La valeur ressortie doit être 9." << endl;
+    cout << "Contenu de la PriorityQueue après un pop: ";
+    pq.print();
+    
+    cout << "Test de rajout d'éléments dans la PriorityQueue." << endl;
+    pq.push(15);
+    pq.push(5);
+    cout << "Contenu de la PriorityQueue après avoir ajouté 15 et 5: ";
+    pq.print();
+    cout << "Test de la méthode pop(): " << pq.pop() << endl;
+    cout << "La valeur ressortie doit être 15." << endl;
+    cout << "Contenu de la PriorityQueue après un pop: ";
+    pq.print();
+
+    cout << "Fin des tests de PriorityQueue." << endl;
+
 
 
     return 0;

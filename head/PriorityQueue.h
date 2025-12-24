@@ -10,7 +10,7 @@ class PriorityQueue
         virtual ~PriorityQueue() = default;
         void shiftUp(const int i);
         void shiftDown();
-        T& pop();
+        T pop();
         bool push(const T& t);
         bool isEmpty() const;
         int size() const;

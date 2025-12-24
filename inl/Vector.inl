@@ -42,13 +42,13 @@ inline void Vector<T>::adjust()
 }
 
 template<class T>
-inline T& Vector<T>::pop()
+inline T Vector<T>::pop()
 {
     if (s <= 0)
     {
         throw std::out_of_range("Vector vide");
     }
-    T& tempValue = storage[s-1];
+    T tempValue = storage[s-1];
     s--;
     adjust();
     return tempValue;

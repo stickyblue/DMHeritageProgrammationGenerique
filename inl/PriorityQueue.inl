@@ -1,8 +1,7 @@
 template <class T>
 
-inline PriorityQueue<T>::PriorityQueue() : s(0)
+inline PriorityQueue<T>::PriorityQueue() : s(0), storage()
 {
-    storage = Vector<T>();
 }
 
 template <class T>
@@ -52,9 +51,9 @@ inline bool PriorityQueue<T>::push(const T& t)
 }
 
 template <class T>
-inline void PriorityQueue<T>::shiftDown(const int i)
+inline void PriorityQueue<T>::shiftDown()
 {
-    int currentIndex = i;
+    int currentIndex = 0;
     while (true)
     {
         int leftChildIndex = getFilsGauche(currentIndex);
@@ -82,16 +81,16 @@ inline void PriorityQueue<T>::shiftDown(const int i)
 }
 
 template <class T>
-inline T& PriorityQueue<T>::pop()
+inline T PriorityQueue<T>::pop()
 {
     if (s <= 0)
     {
         throw std::out_of_range("PriorityQueue vide");
     }
-    T& topElement = storage[0];
+    T topElement = storage[0];
     storage[0] = storage.pop();
-    shiftDown(0);
     s--;
+    shiftDown();
     return topElement;
 }
 
@@ -99,4 +98,16 @@ template <class T>
 inline bool PriorityQueue<T>::isEmpty() const
 {
     return s == 0;
+}
+
+template <class T>
+inline int PriorityQueue<T>::size() const
+{
+    return s;
+}
+
+template <class T>
+inline void PriorityQueue<T>::print() const
+{
+    storage.print();
 }
