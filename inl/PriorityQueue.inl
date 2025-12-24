@@ -51,4 +51,52 @@ inline bool PriorityQueue<T>::push(const T& t)
     return true;
 }
 
+template <class T>
+inline void PriorityQueue<T>::shiftDown(const int i)
+{
+    int currentIndex = i;
+    while (true)
+    {
+        int leftChildIndex = getFilsGauche(currentIndex);
+        int rightChildIndex = getFilsDroit(currentIndex);
+        int largestIndex = currentIndex;
+        if (leftChildIndex < s && storage[leftChildIndex] > storage[largestIndex])
+        {
+            largestIndex = leftChildIndex;
+        }
+        if (rightChildIndex < s && storage[rightChildIndex] > storage[largestIndex])
+        {
+            largestIndex = rightChildIndex;
+        }
+        if (largestIndex != currentIndex)
+        {
+            std::swap(storage[currentIndex], storage[largestIndex]);
+            currentIndex = largestIndex;
+        }
+        else
+        {
+            break;
+        }
+    }
 
+}
+
+template <class T>
+inline T& PriorityQueue<T>::pop()
+{
+    if (s <= 0)
+    {
+        throw std::out_of_range("PriorityQueue vide");
+    }
+    T& topElement = storage[0];
+    storage[0] = storage.pop();
+    shiftDown(0);
+    s--;
+    return topElement;
+}
+
+template <class T>
+inline bool PriorityQueue<T>::isEmpty() const
+{
+    return s == 0;
+}

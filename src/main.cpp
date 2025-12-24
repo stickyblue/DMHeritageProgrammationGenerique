@@ -15,16 +15,19 @@ int main()
     }
 
     cout << "Pas d'erreur lors des push, donc la capacité dynamique fonctionne (et les push aussi pour le coup)." << endl;
-
+    cout << "Taille actuelle du Vector: " << v.size() << endl;
+    cout << "La taille doit être 10." << endl;
     cout << "Test de la méthode pop(): " << v.pop() << endl;
-
     cout << "La valeur ressortie doit être 9." << endl;
+    cout << "Contenu du Vector après un pop: ";
+    v.print();
+    cout << "Taille actuelle du Vector: " << v.size() << endl;
+    cout << "La taille doit être 9." << endl;
 
     Vector<string> vs;
 
     cout << "Test de Vector avec des strings" << endl;
     cout << "Test fonction isEmpty() sur un Vector vide: " << (vs.isEmpty() ? "Vrai" : "Faux") << endl;
-
     cout << "Ajout de quelques strings." << endl;
     vs.push("Bonjour");
     vs.push("le");
@@ -34,6 +37,8 @@ int main()
     cout << "Test fonction isEmpty() sur un Vector non vide: " << (vs.isEmpty() ? "Vrai" : "Faux") << endl;
     cout << "Test de la méthode pop(): " << vs.pop() << endl;
     cout << "La valeur ressortie doit être 'monde'." << endl;
+    cout << "Contenu du Vector après un pop: ";
+    vs.print();
     cout << "Test opérateur []: vs[0] = " << vs[0] << endl;
     cout << "La valeur ressortie doit être 'Bonjour'." << endl;
     cout << "Test de la méthode find(): index de 'le' = " << vs.find("le") << endl;
@@ -58,9 +63,18 @@ int main()
     cout << "Contenu du Vector initial modifié: ";
     vs.print();
     cout << "Le Vector initial doit contenir 'C++'." << endl;
-
     cout << "taille du Vector initial: " << vs.size() << endl;
-    cout << "La taille doit être 4." << endl;
+    cout << "La taille doit être 3." << endl;
+    
+    cout << "Test des exceptions pour les accès hors limites." << endl;
+    try
+    {
+        cout << vs.get_i(10) << endl;
+    }
+    catch (const std::out_of_range& e)
+    {
+        cout << "Exception attrapée pour get_i(10): " << e.what() << endl;
+    }
 
     cout << "Fin des tests." << endl;
 

@@ -41,3 +41,12 @@ Une contraite est que les types d'éléments utilisés doivent avoir une relatio
 ## Q13
 
 L'utilisation d'un vector permet une allocation dynamique de la mémoire (car la taille du vector est modifiée automatiquement au besoin). Cela peret également de gérer les copies, car l'implémentation de la copie a été implémentée dans la classe Vector. Un unique pointer réimplémenterai les problèmes énonés en question 11.
+
+## Q18
+
+La fonction push() commence par push une élément dans un Vector, dans le pire des cas (donc le vector double de taille), on aurait le nombre d'éléments de l'arbre qui seraient déplacés, soit (2^n) - 1 éléments. (n étant le nombre de "paliers" de l'arbre) Donc une complexité de O(2^n)
+La réorganisation via shiftUp n'utilise qu'une opération swap par étage, soit dans le pire des cas n opérations soit O(n)
+La complexité totale de push() serait alors O(2^n + n).
+
+De même pour la fonction pop(), D'une part on a le déplacement du dernier élément au premier, qui dans le pire des cas réduit la taille du Vector de moitié soit O(2^n). D'autre part, le shiftDown réorganise deux éléments par étage, soit une opération par étage O(n)
+La complexité totale de pop() est donc O(2^n + n).

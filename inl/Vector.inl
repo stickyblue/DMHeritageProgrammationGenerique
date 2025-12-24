@@ -29,6 +29,16 @@ inline void Vector<T>::adjust()
         }
         storage = std::move(newStorage);
     }
+    if (s < capacity / 4 && capacity > 1)
+    {
+        capacity /= 2;
+        std::unique_ptr<T[]> newStorage = std::make_unique<T[]>(capacity);
+        for (int i = 0; i < s; i++)
+        {
+            newStorage[i] = storage[i];
+        }
+        storage = std::move(newStorage);
+    }
 }
 
 template<class T>
@@ -38,8 +48,10 @@ inline T& Vector<T>::pop()
     {
         throw std::out_of_range("Vector vide");
     }
+    T& tempValue = storage[s-1];
     s--;
-    return storage[s-1];
+    adjust();
+    return tempValue;
 
 
 }
