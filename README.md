@@ -1,6 +1,6 @@
 # DM: Héritage, Programmation Générique
 
-Ce repo correspond au rendu de DM d'architecture et structure de données
+Ce repository correspond au rendu du DM d'architecture et structure de données
 
 ## Compilation
 
@@ -19,3 +19,7 @@ Les questions ne necessitant pas de code seront placées dans un fichier Markdow
 ## Méthodes complexes
 
 Les méthodes complexes ainsi que la documentation des méthodes plus simples seront au besoin expliquées également dans un fichier Markdown présent dans le dossier doc
+
+## Questions et troubleshouting
+
+Les questions et / ou problèmes de compilation peuvent être adressées dans l'onglet issues du repo, ou par mail s'il s'agit d'un examinateur.
