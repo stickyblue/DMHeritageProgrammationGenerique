@@ -44,9 +44,14 @@ L'utilisation d'un vector permet une allocation dynamique de la mémoire (car la
 
 ## Q18
 
-La fonction push() commence par push une élément dans un Vector, dans le pire des cas (donc le vector double de taille), on aurait le nombre d'éléments de l'arbre qui seraient déplacés, soit (2^n) - 1 éléments. (n étant le nombre de "paliers" de l'arbre) Donc une complexité de O(2^n)
-La réorganisation via shiftUp n'utilise qu'une opération swap par étage, soit dans le pire des cas n opérations soit O(n)
-La complexité totale de push() serait alors O(2^n + n).
+La fonction push() commence par push un élément dans un Vector. Dans le pire des cas (le vector double de taille), on aurait le nombre d'éléments de l'arbre qui seraient déplacés, soit `(2^n) - 1` éléments (n étant le nombre d'**étages** de l'arbre). On considérera la taille de l'ancien vector, car seul l'élemant rajouté appartient au nouvel étage.
+On obtient donc une complexité algorithmique de `O(2^n)`.
 
-De même pour la fonction pop(), D'une part on a le déplacement du dernier élément au premier, qui dans le pire des cas réduit la taille du Vector de moitié soit O(2^n). D'autre part, le shiftDown réorganise deux éléments par étage, soit une opération par étage O(n)
-La complexité totale de pop() est donc O(2^n + n).
+La réorganisation via shiftUp n'utilise qu'une opération swap entre deux étages, soit dans le pire des cas n opérations correspondant à chacun des étages. On a donc une complexité algorithmique de `O(n)`.
+
+La complexité totale de push() serait alors `O(2^n + n)`.
+
+De même pour la fonction pop().
+D'une part on a le déplacement du dernier élément au premier, qui dans le pire des cas réduit la taille du Vector de moitié soit `O(2^(n-1))` (n étant ici le nombre d'étage avant d'avoir retiré le dernier éléments de l'étage précédent).
+D'autre part, le shiftDown swap deux éléments entre deux étages, soit une opération par étage `O(n)`.
+La complexité totale de pop() est donc `O(2^n + n)`.
